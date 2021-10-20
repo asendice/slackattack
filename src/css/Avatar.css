@@ -1,0 +1,9 @@
+.avatar {
+  height: 30px;
+  width: 30px;
+}
+.avatar img {
+  height: 30px;
+  width: 30px;
+  /* border-radius: 10px; */
+}

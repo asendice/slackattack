@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/Header.css";
 import { FaArrowLeft, FaArrowRight, FaRegClock, FaSearch} from "react-icons/fa";
+import Avatar from "./Avatar";
 
 const Header = () => {
   return (
@@ -15,7 +16,9 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="avatar-container"></div>
+      <div className="header-avatar-container">
+        <Avatar />
+      </div>
     </div>
   );
 };
