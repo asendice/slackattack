@@ -16,6 +16,7 @@
   background-color: var(--purple);
 }
 .server-item-info {
+  width: 200px;
   color: #d3d3d3;
 }
 .server-lock {

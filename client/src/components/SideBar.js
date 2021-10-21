@@ -4,15 +4,17 @@ import { BsPencilSquare } from "react-icons/bs";
 import { FaCaretDown } from "react-icons/fa";
 import SideBarSection from "./SideBarSection";
 import ServerModal from "./ServerModal";
+import { useSelector } from "react-redux";
 
 const SideBar = () => {
   const [open, setOpen] = useState(false);
+  const name = useSelector((state) => state.selectedServer.server.name);
 
   return (
     <div className="sidebar">
       <div onClick={() => setOpen(!open)} className="sidebar-header">
         <h1>
-          SlackAttack <FaCaretDown />
+          {name} <FaCaretDown />
         </h1>
         <div className="sidebar-header-button">
           <BsPencilSquare />
