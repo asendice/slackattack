@@ -9,6 +9,19 @@ export const getServers = createAsyncThunk(
       .then((res) => res.data.result);
   }
 );
+export const postServer = createAsyncThunk(
+  "servers/postServers",
+  async (server) => {
+    const json = JSON.stringify(server);
+    return await axios
+      .post("http://localhost:8000/api/servers", json, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => res.data.result);
+  }
+);
 
 const initialState = {
   servers: [],
@@ -40,6 +53,16 @@ export const serverSlice = createSlice({
       state.servers = action.payload;
     },
     [getServers.rejected]: (state, action) => {
+      state.status = "failed";
+    },
+    [postServer.pending]: (state, action) => {
+      state.status = "loading";
+    },
+    [postServer.fulfilled]: (state, action) => {
+      state.status = "success";
+      state.servers = [...state.servers, action.payload];
+    },
+    [postServer.rejected]: (state, action) => {
       state.status = "failed";
     },
   },

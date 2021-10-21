@@ -9,6 +9,7 @@ import {
   setPicture,
   setAdmin,
 } from "../redux/reducers/serverFormSlice";
+import { postServer } from "../redux/reducers/serverSlice";
 
 const CreateServer = () => {
   const dispatch = useDispatch();
@@ -18,10 +19,9 @@ const CreateServer = () => {
   const description = useSelector((state) => state.serverForm.description);
   const picture = useSelector((state) => state.serverForm.picture);
   const admin = useSelector((state) => state.serverForm.admin);
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: { name, password, description, picture, admin },
   });
-
 
   const onSubmit = (data) => {
     dispatch(setName(data.name));
@@ -30,6 +30,12 @@ const CreateServer = () => {
     dispatch(setPicture(data.picture));
     dispatch(setAdmin(data.admin));
   };
+
+  useEffect(() => {
+    console.log(serverForm)
+    dispatch(postServer(serverForm));
+    reset()
+  }, [serverForm]);
 
   return (
     <div className="create-server">
