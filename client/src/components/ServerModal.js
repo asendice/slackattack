@@ -18,6 +18,10 @@ const ServerModal = ({ open, setOpen }) => {
     dispatch(setFrame("Create Server"));
     setOpen(!open);
   };
+  const onJoinServerClick = () => {
+    dispatch(setFrame("Join Servers"));
+    setOpen(!open);
+  };
 
   if (open) {
     return (
@@ -35,6 +39,12 @@ const ServerModal = ({ open, setOpen }) => {
             onClick={() => onCreateServerClick()}
           >
             <p>Create Server</p>
+          </div>
+          <div
+            className="server-modal-option"
+            onClick={() => onJoinServerClick()}
+          >
+            <p>Join Servers</p>
           </div>
         </div>
       </div>

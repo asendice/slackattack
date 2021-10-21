@@ -1,0 +1,16 @@
+.join-servers {
+  flex: 13;
+  height: 96vh;
+  background-color: var(--feed);
+}
+.join-servers-header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid #d3d3d3;
+}
+.join-servers-header h2 {
+  color: #d3d3d3;
+  margin-left: 20px;
+}

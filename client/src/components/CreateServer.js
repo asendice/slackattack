@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/CreateServer.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
@@ -12,6 +12,7 @@ import {
 
 const CreateServer = () => {
   const dispatch = useDispatch();
+  const serverForm = useSelector((state) => state.serverForm);
   const name = useSelector((state) => state.name);
   const password = useSelector((state) => state.password);
   const description = useSelector((state) => state.description);
@@ -20,6 +21,7 @@ const CreateServer = () => {
   const { register, handleSubmit } = useForm({
     defaultValues: { name, password, description, picture, admin },
   });
+
 
   const onSubmit = (data) => {
     dispatch(setName(data.name));
@@ -38,11 +40,21 @@ const CreateServer = () => {
       <form className="create-server-form" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-field">
           <p>Name of Server</p>
-          <input id="name" placeholder="Name of Server" name="name" {...register("name")} />
+          <input
+            id="name"
+            placeholder="Name of Server"
+            name="name"
+            {...register("name")}
+          />
         </div>
         <div className="form-field">
           <p>Password (optional)</p>
-          <input id="password" name="password" type="password" {...register("password")} />
+          <input
+            id="password"
+            name="password"
+            type="password"
+            {...register("password")}
+          />
         </div>
         <div className="form-field">
           <p>Description</p>
@@ -50,7 +62,7 @@ const CreateServer = () => {
             id="description"
             name="description"
             placeholder="description of server"
-            {...register("description")} 
+            {...register("description")}
           />
         </div>
         <div className="form-field">
@@ -59,12 +71,17 @@ const CreateServer = () => {
             id="picture"
             name="picture"
             placeholder="file type .png .jpg .jpeg"
-            {...register("picture")} 
+            {...register("picture")}
           />
         </div>
         <div className="form-field">
           <p>Admin</p>
-          <input id="admin" name="admin" placeholder="logged in userid" {...register("admin")} />
+          <input
+            id="admin"
+            name="admin"
+            placeholder="logged in userid"
+            {...register("admin")}
+          />
         </div>
         <button type="submit" className="form-submit">
           <p>Submit</p>

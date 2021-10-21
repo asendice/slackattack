@@ -1,13 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const getServers = createAsyncThunk(
+  "servers/getServers",
+  async (dispatch, getState) => {
+    return await axios
+      .get("http://localhost:8000/api/servers")
+      .then((res) => res.data.result);
+  }
+);
 
 const initialState = {
   servers: [],
+  status: null,
 };
 
 export const serverSlice = createSlice({
   name: "servers",
   initialState,
   reducers: {
+    addServers: (state, action) => {
+      state.servers = action.payload;
+    },
     addServer: (state, action) => {
       state.servers = [...state.servers, action.payload];
     },
@@ -16,13 +30,22 @@ export const serverSlice = createSlice({
         (item) => item.id !== action.payload
       );
     },
-    // incrementByAmount: (state, action) => {
-    //   state.value += action.payload
-    // },
+  },
+  extraReducers: {
+    [getServers.pending]: (state, action) => {
+      state.status = "loading";
+    },
+    [getServers.fulfilled]: (state, action) => {
+      state.status = "success";
+      state.servers = action.payload;
+    },
+    [getServers.rejected]: (state, action) => {
+      state.status = "failed";
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addServer, deleteServer } = serverSlice.actions;
+export const { addServer, addServers, deleteServer } = serverSlice.actions;
 
 export default serverSlice.reducer;
