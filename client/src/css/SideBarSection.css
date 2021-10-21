@@ -12,9 +12,14 @@
   justify-content: space-evenly;
   height: 50px;
   width: 100%;
+  cursor: pointer;
 }
 .sidebar-section-title {
   width: 180px;
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
 }
 .sidebar-section-icon-container {
   display: flex;
@@ -26,6 +31,5 @@
 }
 
 .sidebar-section-icon-container:hover {
-  cursor: pointer;
   background-color: var(--purple);
 }
