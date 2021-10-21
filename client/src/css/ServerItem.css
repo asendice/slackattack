@@ -1,0 +1,24 @@
+.server-image {
+  height: 50px;
+  width: 50px;
+}
+.server-item {
+  display: flex;
+  height: 80px;
+  width: 400px;
+  margin: 10px;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  background-color: var(--sidebar);
+}
+.server-item:hover {
+  background-color: var(--purple);
+}
+.server-item-info {
+  color: #d3d3d3;
+}
+.server-lock {
+  color: #d3d3d3;
+  font-size: 1rem;
+}

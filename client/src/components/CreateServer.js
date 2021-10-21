@@ -13,11 +13,11 @@ import {
 const CreateServer = () => {
   const dispatch = useDispatch();
   const serverForm = useSelector((state) => state.serverForm);
-  const name = useSelector((state) => state.name);
-  const password = useSelector((state) => state.password);
-  const description = useSelector((state) => state.description);
-  const picture = useSelector((state) => state.picture);
-  const admin = useSelector((state) => state.admin);
+  const name = useSelector((state) => state.serverForm.name);
+  const password = useSelector((state) => state.serverForm.password);
+  const description = useSelector((state) => state.serverForm.description);
+  const picture = useSelector((state) => state.serverForm.picture);
+  const admin = useSelector((state) => state.serverForm.admin);
   const { register, handleSubmit } = useForm({
     defaultValues: { name, password, description, picture, admin },
   });
