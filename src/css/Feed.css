@@ -1,0 +1,5 @@
+.feed {
+  flex: 13;
+  height: 96vh;
+  background-color: var(--feed);
+}

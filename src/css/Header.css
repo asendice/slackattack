@@ -31,13 +31,13 @@
   height: 30px;
   width: 80%;
   background-color: #38373c;
-  border: 1px solid #ffffff;
+  border: 1px solid #d3d3d3;
   border-radius: 10px;  
 }
 .header-search-button p {
-  color: #ffffff;
+  color: #d3d3d3;
   margin-left: 10px;
 }
 .icon {
-  color: #ffffff;
+  color: #d3d3d3;
 }

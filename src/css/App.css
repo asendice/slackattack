@@ -1,4 +1,7 @@
 * {
   margin: 0;
   font-family: 'Noto Sans', sans-serif;
+  --sidebar: #19171d;
+  --feed: #191d21;
+  overflow-y: hidden;
 }

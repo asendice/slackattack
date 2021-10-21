@@ -1,0 +1,31 @@
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #d3d3d3;
+  width: 100%;
+}
+
+.sidebar-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 50px;
+  width: 100%;
+}
+.sidebar-section-title {
+  width: 180px;
+}
+.sidebar-section-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 2px;
+}
+
+.sidebar-section-icon-container:hover {
+  cursor: pointer;
+  background-color: var(--purple);
+}
