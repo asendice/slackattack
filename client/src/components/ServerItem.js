@@ -13,7 +13,11 @@ const ServerItem = ({ server }) => {
 
   return (
     <div className="server-item" onClick={() => onServerItemClick()}>
-      <img className="server-image" src={server.picture} />
+      <img
+        alt={`${server.name} logo`}
+        className="server-image"
+        src={server.picture}
+      />
       <div className="server-item-info">
         <h2>{server.name}</h2>
         <p>{server.description}</p>
