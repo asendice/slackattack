@@ -14,6 +14,7 @@ const TextArea = ({ name }) => {
       content: message,
       userId: "01",
       channelId: channelId,
+      created: new Date(),
     };
     dispatch(postPosts(obj));
     console.log(obj, "obj");

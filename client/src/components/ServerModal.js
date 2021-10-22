@@ -35,7 +35,7 @@ const ServerModal = ({ open, setOpen }) => {
         <div className="server-modal-content">
           <div className="server-modal-header">
             {image && <img alt={`${name}'s Logo`} src={image} />}
-            {name ? <h3>{name}</h3> : "Select Server"}
+            {name ? <h3>{name}</h3> : <h3>Server</h3>}
           </div>
           <div
             className="server-modal-option"

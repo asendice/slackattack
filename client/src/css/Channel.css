@@ -2,7 +2,7 @@
   flex: 13;
   display: flex;
   flex-direction: column;
-  height: 96vh;
+  max-height: 96vh;
   background-color: var(--feed);
 }
 .channel-header {
@@ -19,6 +19,7 @@
 
 .channel-feed {
   height: 70%;
+  overflow-y: scroll
 }
 
 /* .channel-message {

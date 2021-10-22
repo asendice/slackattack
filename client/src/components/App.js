@@ -12,13 +12,13 @@ function App() {
 
   useEffect(() => {
     dispatch(getServers());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (selectedServer) {
       dispatch(getChannels(selectedServer._id));
     }
-  }, [selectedServer]);
+  }, [selectedServer, dispatch]);
 
   return (
     <div className="App">

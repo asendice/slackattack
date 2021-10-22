@@ -5,7 +5,7 @@ import SideBarOption from "./SideBarOption";
 import SideBarAddModal from "./SideBarAddModal";
 
 const SideBarSection = ({ title, channels }) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   const [open, setOpen] = useState(false);
   return (
     <div className="sidebar-section">

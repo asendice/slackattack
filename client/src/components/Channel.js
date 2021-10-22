@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "../css/Channel.css";
 import TextArea from "./TextArea";
 import Post from "./Post";
@@ -9,12 +9,21 @@ const Channel = () => {
   const dispatch = useDispatch();
   const channel = useSelector((state) => state.selectedChannel.channel);
   const posts = useSelector((state) => state.posts.posts);
+  // const channelEndRef = useRef(null);
+
+  // const scrollToBottom = () => {
+  //   channelEndRef.current.scrollIntoView({ behavior: "smooth" });
+  // };
+
+  // useEffect(() => {
+  //   scrollToBottom();
+  // }, [posts]);
 
   useEffect(() => {
     if (channel) {
       dispatch(getPosts(channel._id));
     }
-  }, [channel]);
+  }, [channel, dispatch]);
 
   return (
     <div className="channel">
@@ -23,8 +32,9 @@ const Channel = () => {
       </div>
       <div className=" channel-feed">
         {posts.map((post) => {
-          return <Post post={post} />;
+          return <Post post={post}  />;
         })}
+        {/* <div ref={channelEndRef}>dsf</div> */}
       </div>
       <div className="channel-message">
         <TextArea name={channel.name} />

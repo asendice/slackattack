@@ -104,11 +104,12 @@ exports.getPosts = (req, res) => {
 };
 
 exports.postPosts = (req, res) => {
-  const { channelId, content, userId } = req.body;
+  const { channelId, content, userId, created } = req.body;
   const post = new Posts({
     channelId: channelId,
     content: content,
     userId: userId,
+    created: created
   });
   post
     .save()

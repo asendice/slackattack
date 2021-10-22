@@ -35,7 +35,7 @@ const CreateServer = () => {
     console.log(serverForm)
     dispatch(postServer(serverForm));
     reset()
-  }, [serverForm]);
+  }, [serverForm, dispatch, reset]);
 
   return (
     <div className="create-server">
