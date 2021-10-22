@@ -3,6 +3,7 @@ import serverReducer from "./reducers/serverSlice";
 import frameReducer from "./reducers/frameSlice";
 import serverFormReducer from "./reducers/serverFormSlice";
 import selectedServerReducer from "./reducers/selectedServer";
+import channelReducer from "./reducers/channelSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     frame: frameReducer,
     serverForm: serverFormReducer,
     selectedServer: selectedServerReducer,
+    channels: channelReducer,
   },
 });
