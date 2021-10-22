@@ -1,0 +1,10 @@
+.post {
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  color: #d3d3d3;
+}
+
+.post:hover {
+  background-color: var(--hover)
+}

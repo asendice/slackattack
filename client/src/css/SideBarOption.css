@@ -7,7 +7,7 @@
 
 .side-bar-option:hover {
   cursor: pointer;
-  background-color: var(--purple)
+  background-color: var(--hover)
 }
 
 .side-bar-option p {

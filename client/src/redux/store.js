@@ -5,6 +5,7 @@ import serverFormReducer from "./reducers/serverFormSlice";
 import selectedServerReducer from "./reducers/selectedServer";
 import channelReducer from "./reducers/channelSlice";
 import selectedChannelReducer from "./reducers/selectedChannelSlice";
+import postReducer from "./reducers/postSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     selectedServer: selectedServerReducer,
     channels: channelReducer,
     selectedChannel: selectedChannelReducer,
+    posts: postReducer,
   },
 });

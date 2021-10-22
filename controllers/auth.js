@@ -1,5 +1,6 @@
 const Server = require("../models/Server");
 const Channel = require("../models/Channel");
+const Posts = require("../models/Post");
 
 exports.getServers = (req, res) => {
   Server.find().then((servers) => {
@@ -45,9 +46,9 @@ exports.postServer = (req, res) => {
 };
 
 exports.getChannels = (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   const { serverId } = req.params;
-  console.log(serverId)
+  console.log(serverId);
   Channel.find({ serverId: serverId }).then((channels) => {
     if (!channels) {
       return res.status(404).json({
@@ -71,6 +72,45 @@ exports.postChannels = (req, res) => {
     name: name,
   });
   channel
+    .save()
+    .then((response) => {
+      res.status(200).json({
+        success: true,
+        result: response,
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        errors: [{ error: err }],
+      });
+    });
+};
+
+exports.getPosts = (req, res) => {
+  console.log(req.body);
+  const { channelId } = req.params;
+  Posts.find({ channelId: channelId }).then((posts) => {
+    if (!posts) {
+      return res.status(404).json({
+        errors: [{ posts: "No posts found Error" }],
+      });
+    } else {
+      return res.status(200).json({
+        success: true,
+        result: posts,
+      });
+    }
+  });
+};
+
+exports.postPosts = (req, res) => {
+  const { channelId, content, userId } = req.body;
+  const post = new Posts({
+    channelId: channelId,
+    content: content,
+    userId: userId,
+  });
+  post
     .save()
     .then((response) => {
       res.status(200).json({
