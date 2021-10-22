@@ -4,9 +4,10 @@
   min-height: 60px;
   color: #d3d3d3;
   padding: 10px;
+  padding-left: 30px;
 }
 .post:hover {
-  background-color: var(--hover);
+  background-color: var(--posthover);
   cursor: default;
 }
 .post-content {
@@ -23,9 +24,4 @@
   font-size: 12px;
   margin-left: 10px;
   color: rgb(84, 84, 84);
-}
-.post-avatar {
-  background-color: pink;
-  height: 100px;
-  width: 100px;
 }

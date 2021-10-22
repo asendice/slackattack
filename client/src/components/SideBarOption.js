@@ -11,9 +11,10 @@ const SideBarOption = ({ name, channel }) => {
     (state) => state.selectedChannel.channel.name
   );
   const onOptionClick = () => {
-    dispatch(setFrame("Channel"));
     dispatch(setChannel(channel));
+    dispatch(setFrame("Channel"));
   };
+
   return (
     <div
       style={{

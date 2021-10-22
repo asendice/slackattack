@@ -3,12 +3,14 @@ import "../css/ServerItem.css";
 import { FaLock, FaUnlock } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { setServer } from "../redux/reducers/selectedServer";
+import { setPosts } from "../redux/reducers/postSlice";
 
 const ServerItem = ({ server }) => {
   const dispatch = useDispatch();
 
   const onServerItemClick = () => {
     dispatch(setServer(server));
+    dispatch(setPosts([]));
   };
 
   return (

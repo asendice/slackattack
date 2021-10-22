@@ -25,6 +25,8 @@ const Channel = () => {
     }
   }, [channel, dispatch]);
 
+ 
+
   return (
     <div className="channel">
       <div className="channel-header">
