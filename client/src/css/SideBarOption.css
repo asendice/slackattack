@@ -1,0 +1,15 @@
+.side-bar-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+}
+
+.side-bar-option:hover {
+  cursor: pointer;
+  background-color: var(--purple)
+}
+
+.side-bar-option p {
+  margin-left: 20px;
+}

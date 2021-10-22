@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "../css/SideBarSection.css";
 import { FaCaretDown, FaCaretRight, FaPlus, FaEllipsisV } from "react-icons/fa";
+import SideBarOption from "./SideBarOption";
 
-const SideBarSection = ({ title }) => {
+const SideBarSection = ({ title, channels }) => {
   const [active, setActive] = useState(false);
   return (
     <div className="sidebar-section">
@@ -27,6 +28,11 @@ const SideBarSection = ({ title }) => {
           <FaPlus />
         </div>
       </div>
+      {channels &&
+        active &&
+        channels.map((channel, index) => {
+          return <SideBarOption key={index} name={channel.name} />;
+        })}
     </div>
   );
 };

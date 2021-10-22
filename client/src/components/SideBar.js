@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 const SideBar = () => {
   const [open, setOpen] = useState(false);
   const name = useSelector((state) => state.selectedServer.server.name);
+  const channels = useSelector((state) => state.channels.channels)
 
   return (
     <div className="sidebar">
@@ -20,7 +21,7 @@ const SideBar = () => {
           <BsPencilSquare />
         </div>
       </div>
-      <SideBarSection title="Channels" />
+      <SideBarSection title="Channels" channels={channels} />
       <SideBarSection title="Direct Messages" />
       <ServerModal open={open} setOpen={setOpen} />
     </div>
