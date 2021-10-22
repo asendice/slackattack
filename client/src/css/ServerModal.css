@@ -25,6 +25,11 @@
   height: 80px;
   border-bottom: 1px solid #d3d3d3;
 }
+.server-modal-header img {
+  height: 60px;
+  width: 60px;
+  margin-left: 20px;
+}
 .server-modal-header h3 {
   color: #d3d3d3;
   margin-left: 20px;

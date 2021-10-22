@@ -31,7 +31,7 @@ const SideBarSection = ({ title, channels }) => {
       {channels &&
         active &&
         channels.map((channel, index) => {
-          return <SideBarOption key={index} name={channel.name} />;
+          return <SideBarOption key={index} name={channel.name} channel={channel} />;
         })}
     </div>
   );

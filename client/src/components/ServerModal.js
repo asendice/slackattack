@@ -1,10 +1,12 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFrame } from "../redux/reducers/frameSlice";
 import "../css/ServerModal.css";
 
 const ServerModal = ({ open, setOpen }) => {
   const dispatch = useDispatch();
+  const name = useSelector((state) => state.selectedServer.server.name);
+  const image = useSelector((state) => state.selectedServer.server.picture);
 
   const dismissModal = (e) => {
     if (e.target.id === "server-modal") {
@@ -32,7 +34,8 @@ const ServerModal = ({ open, setOpen }) => {
       >
         <div className="server-modal-content">
           <div className="server-modal-header">
-            <h3>Server Name</h3>
+            {image && <img src={image} />}
+            {name ? <h3>{name}</h3> : "Select Server"}
           </div>
           <div
             className="server-modal-option"

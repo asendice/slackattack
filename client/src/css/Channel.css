@@ -1,0 +1,27 @@
+.channel {
+  flex: 13;
+  display: flex;
+  flex-direction: column;
+  height: 96vh;
+  background-color: var(--feed);
+}
+.channel-header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid #d3d3d3;
+}
+.channel-header h2 {
+  color: #d3d3d3;
+  margin-left: 20px;
+}
+
+.channel-feed {
+
+  height: 70%;
+}
+
+.channel-message {
+  /* width: 100%; */
+}
