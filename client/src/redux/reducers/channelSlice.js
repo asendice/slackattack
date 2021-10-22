@@ -13,19 +13,19 @@ export const getChannels = createAsyncThunk(
       .then((res) => res.data.result);
   }
 );
-// export const postServer = createAsyncThunk(
-//   "servers/postServers",
-//   async (server) => {
-//     const json = JSON.stringify(server);
-//     return await axios
-//       .post("http://localhost:8000/api/servers", json, {
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       })
-//       .then((res) => res.data.result);
-//   }
-// );
+export const postChannel = createAsyncThunk(
+  "channels/postChannel",
+  async (channel) => {
+    const json = JSON.stringify(channel);
+    return await axios
+      .post("http://localhost:8000/api/channels", json, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => res.data.result);
+  }
+);
 
 const initialState = {
   channels: [],
@@ -59,16 +59,16 @@ export const channelSlice = createSlice({
     [getChannels.rejected]: (state, action) => {
       state.status = "failed";
     },
-    // [postChannel.pending]: (state, action) => {
-    //   state.status = "loading";
-    // },
-    // [postChannel.fulfilled]: (state, action) => {
-    //   state.status = "success";
-    //   state.channels = [...state.channels, action.payload];
-    // },
-    // [postChannel.rejected]: (state, action) => {
-    //   state.status = "failed";
-    // },
+    [postChannel.pending]: (state, action) => {
+      state.status = "loading";
+    },
+    [postChannel.fulfilled]: (state, action) => {
+      state.status = "success";
+      state.channels = [...state.channels, action.payload];
+    },
+    [postChannel.rejected]: (state, action) => {
+      state.status = "failed";
+    },
   },
 });
 

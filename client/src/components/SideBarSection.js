@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "../css/SideBarSection.css";
 import { FaCaretDown, FaCaretRight, FaPlus, FaEllipsisV } from "react-icons/fa";
 import SideBarOption from "./SideBarOption";
+import SideBarAddModal from "./SideBarAddModal";
 
 const SideBarSection = ({ title, channels }) => {
   const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
   return (
     <div className="sidebar-section">
       <div className="sidebar-section-header">
@@ -24,15 +26,21 @@ const SideBarSection = ({ title, channels }) => {
         <div className="sidebar-section-icon-container">
           <FaEllipsisV />
         </div>
-        <div className="sidebar-section-icon-container">
+        <div
+          onClick={() => setOpen(!open)}
+          className="sidebar-section-icon-container"
+        >
           <FaPlus />
         </div>
       </div>
       {channels &&
         active &&
         channels.map((channel, index) => {
-          return <SideBarOption key={index} name={channel.name} channel={channel} />;
+          return (
+            <SideBarOption key={index} name={channel.name} channel={channel} />
+          );
         })}
+      <SideBarAddModal open={open} setOpen={setOpen}/>
     </div>
   );
 };
